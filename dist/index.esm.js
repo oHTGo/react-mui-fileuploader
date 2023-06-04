@@ -168,15 +168,17 @@ function FileUpload(props) {
             // @ts-ignore
             filesTab = event.target.files;
         }
-        if ((!filesTab || filesTab.length === 0) && onError) {
-            onError("Empty file input");
+        if (!filesTab || filesTab.length === 0) {
+            if (onError)
+                onError("Empty file input");
             return false;
         }
         if (maxUploadFiles) {
-            if (maxUploadFiles - files.length <= 0 && onError) {
+            if (maxUploadFiles - files.length <= 0) {
                 var errorMessage = "You cannot attach more than ".concat(maxUploadFiles, " files");
                 setError(errorMessage);
-                onError(errorMessage);
+                if (onError)
+                    onError(errorMessage);
                 return false;
             }
         }
@@ -192,9 +194,8 @@ function FileUpload(props) {
                         if (file.size > 1024 * 1024 * maxFileSize) {
                             var message = errorSizeMessage || "The size of files cannot exceed ".concat(maxFileSize, "Mb");
                             setError(message);
-                            if (onError) {
+                            if (onError)
                                 onError(message);
-                            }
                             return "continue";
                         }
                     }
@@ -203,9 +204,8 @@ function FileUpload(props) {
                         if (!isAllowed) {
                             var errorMessage = "Extension .".concat(extension, " has been excluded");
                             setError(errorMessage);
-                            if (onError) {
+                            if (onError)
                                 onError(errorMessage);
-                            }
                             return "continue";
                         }
                     }

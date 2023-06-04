@@ -147,17 +147,17 @@ function FileUpload(props: FileUploadProps) {
       filesTab = event.target.files
     }
 
-    if ((!filesTab || filesTab.length === 0) && onError) {
-      onError(`Empty file input`)
+    if (!filesTab || filesTab.length === 0) {
+      if (onError) onError(`Empty file input`)
       return false
     }
 
     if (maxUploadFiles) {
-      if (maxUploadFiles - files.length <= 0 && onError) {
+      if (maxUploadFiles - files.length <= 0) {
         const errorMessage = `You cannot attach more than ${maxUploadFiles} files`
-
         setError(errorMessage)
-        onError(errorMessage)
+
+        if (onError) onError(errorMessage)
         return false
       }
     }
@@ -178,9 +178,7 @@ function FileUpload(props: FileUploadProps) {
               const message = errorSizeMessage || `The size of files cannot exceed ${maxFileSize}Mb`
 
               setError(message)
-              if (onError) {
-                onError(message)
-              }
+              if (onError) onError(message)
 
               continue
             }
@@ -194,9 +192,7 @@ function FileUpload(props: FileUploadProps) {
               const errorMessage = `Extension .${extension} has been excluded`
 
               setError(errorMessage)
-              if (onError) {
-                onError(errorMessage)
-              }
+              if (onError) onError(errorMessage)
 
               continue
             }
