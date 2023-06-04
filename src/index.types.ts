@@ -1,16 +1,16 @@
-import {PaperProps} from '@mui/material'
-import {OverridableComponent} from "@mui/material/OverridableComponent"
-import {PaperTypeMap} from "@mui/material/Paper/Paper"
+import { PaperProps } from '@mui/material'
+import { OverridableComponent } from '@mui/material/OverridableComponent'
+import { PaperTypeMap } from '@mui/material/Paper/Paper'
 
 export interface FileAttachmentProps {
   /** size of the attachment */
-  size: string,
+  size: string
   /** file content of the attachment */
-  file: FileProps,
+  file: FileProps
   /** index of the attachment */
-  index: number,
+  index: number
   /** boolean to indicate if the attachment is disabled or not */
-  disabled?: boolean,
+  disabled?: boolean
   /** callback function passed to the remove button onClick handler*/
   handleRemoveFile: Function
 }
@@ -22,7 +22,7 @@ export interface ContextProps {
   files: ExtendedFileProps[]
 }
 
-export interface FileProps extends Blob{
+export interface FileProps extends Blob {
   name: string
   size: number
   path: string //| ArrayBuffer | null
@@ -34,7 +34,7 @@ export interface FileProps extends Blob{
 }
 
 export interface FileActionProps {
-  event: Event,
+  event: Event
   files: ExtendedFileProps[]
 }
 
@@ -43,7 +43,7 @@ export interface ExtendedFileProps extends FileProps {
 }
 
 export interface ImageDimensionProps {
-  width: number,
+  width: number
   height: number
 }
 
@@ -56,9 +56,10 @@ export interface PlaceholderImageDimensionProps {
 
 // eslint-disable-next-line
 // @ts-ignore
-export interface FileUploadProps extends PaperProps{
+export interface FileUploadProps extends PaperProps {
   title?: string
   header?: string
+  customErrorMessage?: string
   onError?: (error: string) => void
   disabled?: boolean
   imageSrc?: string
@@ -71,8 +72,8 @@ export interface FileUploadProps extends PaperProps{
   acceptedType?: string
   maxFileSize?: number
   /*
-  * @deprecated Since version 0.3.0, please use BannerProps instead. Will be delete in next release
-  */
+   * @deprecated Since version 0.3.0, please use BannerProps instead. Will be delete in next release
+   */
   bannerProps?: PaperProps
   BannerProps?: PaperProps
   defaultFiles?: ExtendedFileProps[]
@@ -80,8 +81,8 @@ export interface FileUploadProps extends PaperProps{
   onContextReady?: (context: object) => void
   maxUploadFiles?: number
   /*
-  * @deprecated Since version 0.3.0, , please use ContainerProps instead. Will be delete in next release
-  */
+   * @deprecated Since version 0.3.0, , please use ContainerProps instead. Will be delete in next release
+   */
   containerProps?: PaperProps
   ContainerProps?: PaperProps
   errorSizeMessage?: string
@@ -92,8 +93,8 @@ export interface FileUploadProps extends PaperProps{
   showPlaceholderImage?: boolean
   PlaceholderImageDimension?: object
   /*
-  * @deprecated Since version 0.3.0, , please use PlaceholderImageDimension instead. Will be delete in next release
-  */
+   * @deprecated Since version 0.3.0, , please use PlaceholderImageDimension instead. Will be delete in next release
+   */
   placeholderImageDimension?: object
   LabelsGridProps?: object
   PlaceholderGridProps?: object
