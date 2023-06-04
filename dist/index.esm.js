@@ -174,7 +174,7 @@ function FileUpload(props) {
             return false;
         }
         if (maxUploadFiles) {
-            if (maxUploadFiles - (files.length + filesTab.length) <= 0) {
+            if (maxUploadFiles - (files.length + filesTab.length) < 0) {
                 var errorMessage = "You cannot attach more than ".concat(maxUploadFiles, " files");
                 setError(errorMessage);
                 if (onError)
