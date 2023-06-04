@@ -153,7 +153,7 @@ function FileUpload(props: FileUploadProps) {
     }
 
     if (maxUploadFiles) {
-      if (maxUploadFiles - files.length <= 0) {
+      if (maxUploadFiles - (files.length + filesTab.length) <= 0) {
         const errorMessage = `You cannot attach more than ${maxUploadFiles} files`
         setError(errorMessage)
 
