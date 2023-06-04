@@ -1,7 +1,7 @@
-/// <reference types="react" />
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FileAttachmentProps } from "./index.types";
-declare function FileAttachment(props: FileAttachmentProps): JSX.Element;
+declare function FileAttachment(props: FileAttachmentProps): React.JSX.Element;
 declare namespace FileAttachment {
     var propTypes: {
         size: PropTypes.Requireable<string>;

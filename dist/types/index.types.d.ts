@@ -1,6 +1,6 @@
 import { PaperProps } from '@mui/material';
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { PaperTypeMap } from "@mui/material/Paper/Paper";
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { PaperTypeMap } from '@mui/material/Paper/Paper';
 export interface FileAttachmentProps {
     /** size of the attachment */
     size: string;
@@ -49,6 +49,7 @@ export interface PlaceholderImageDimensionProps {
 export interface FileUploadProps extends PaperProps {
     title?: string;
     header?: string;
+    customErrorMessage?: string;
     onError?: (error: string) => void;
     disabled?: boolean;
     imageSrc?: string;

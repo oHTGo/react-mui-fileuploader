@@ -1,14 +1,14 @@
-/// <reference types="react" />
+import React from 'react';
 import PropTypes from 'prop-types';
 import { PaperProps } from '@mui/material';
-import { FileUploadProps } from "./index.types";
+import { FileUploadProps } from './index.types';
 /**
  * @name FileUpload
  * @description Upload file component wrapper
  * @param props FileUploadProps
  * @returns React.Component
  */
-declare function FileUpload(props: FileUploadProps): JSX.Element;
+declare function FileUpload(props: FileUploadProps): React.JSX.Element;
 declare namespace FileUpload {
     var propTypes: {
         getBase64: PropTypes.Requireable<boolean>;
@@ -32,6 +32,7 @@ declare namespace FileUpload {
         containerProps: PropTypes.Requireable<object>;
         ContainerProps: PropTypes.Requireable<object>;
         allowedExtensions: PropTypes.Requireable<any[]>;
+        customErrorMessage: PropTypes.Requireable<string>;
         onError: PropTypes.Requireable<(...args: any[]) => any>;
         onContextReady: PropTypes.Requireable<(...args: any[]) => any>;
         onFilesChange: PropTypes.Requireable<(...args: any[]) => any>;
